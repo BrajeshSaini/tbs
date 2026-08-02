@@ -610,7 +610,7 @@
           · Bhopal, M.P., India
         </p>
 
-        <form class="mt-8 grid sm:grid-cols-2 gap-5 max-w-2xl">
+        <form class="mt-8 grid sm:grid-cols-2 gap-5 max-w-2xl" id="contact-form">
           <div class="flex flex-col gap-1.5">
             <label for="name" class="font-mono text-xs text-muted">--name</label>
             <input id="name" type="text" placeholder="Jordan Lee"
@@ -640,6 +640,82 @@
     </div>
   </section>
 
+    <!-- contact dialog -->
+    <div id="contact-dialog" class="hidden fixed inset-0 z-[60] items-center justify-center px-4">
+      <div id="contact-dialog-backdrop" class="absolute inset-0 bg-ink/80 backdrop-blur-sm"></div>
+ 
+      <div role="dialog" aria-modal="true" aria-labelledby="contact-dialog-title"
+        class="relative w-full max-w-sm rounded-lg border border-hairline bg-panel shadow-2xl shadow-black/50 overflow-hidden">
+ 
+        <div class="flex items-center gap-2 px-4 py-2.5 border-b border-hairline bg-card">
+          <span class="h-2.5 w-2.5 rounded-full bg-rose/70"></span>
+          <span class="h-2.5 w-2.5 rounded-full bg-amber/70"></span>
+          <span class="h-2.5 w-2.5 rounded-full bg-teal/70"></span>
+          <span class="ml-3 font-mono text-xs text-muted">reply.sh</span>
+          <button id="contact-dialog-close" type="button" aria-label="Close dialog"
+            class="ml-auto text-muted hover:text-fg font-mono text-sm">✕</button>
+        </div>
+ 
+        <div class="p-6">
+          <p class="font-mono text-xs text-teal mb-2">$ echo $CONTACT_METHOD</p>
+          <h3 id="contact-dialog-title" class="font-display text-lg font-semibold mb-2">
+            Please reach out by email
+          </h3>
+          <p class="text-muted text-sm leading-relaxed">
+            <!-- This form is a UI preview — for now, email is the fastest way to reach me directly. -->
+              I personally review every inquiry — email ensures your message reaches me directly and gets a prompt response.
+          </p>
+ 
+          <div class="mt-5 flex flex-col sm:flex-row gap-3">
+            <a href="mailto:thebrajeshsaini@gmail.com"
+              class="inline-flex items-center justify-center gap-2 rounded-md bg-amber text-ink font-mono text-sm font-semibold px-4 py-2.5 hover:bg-amber/90 transition-colors">
+              thebrajeshsaini@gmail.com
+            </a>
+            <button id="contact-dialog-dismiss" type="button"
+              class="inline-flex items-center justify-center rounded-md border border-hairline font-mono text-sm px-4 py-2.5 text-muted hover:text-fg hover:border-teal transition-colors">
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+ 
+    <script>
+      (function () {
+        var form = document.getElementById('contact-form');
+        var dialog = document.getElementById('contact-dialog');
+        var backdrop = document.getElementById('contact-dialog-backdrop');
+        var closeBtn = document.getElementById('contact-dialog-close');
+        var dismissBtn = document.getElementById('contact-dialog-dismiss');
+        if (!form || !dialog) return;
+ 
+        function openDialog() {
+          dialog.classList.remove('hidden');
+          dialog.classList.add('flex');
+          closeBtn.focus();
+          document.addEventListener('keydown', onKeydown);
+        }
+        function closeDialog() {
+          dialog.classList.add('hidden');
+          dialog.classList.remove('flex');
+          document.removeEventListener('keydown', onKeydown);
+        }
+        function onKeydown(e) {
+          if (e.key === 'Escape') closeDialog();
+        }
+ 
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          openDialog();
+        });
+ 
+        backdrop.addEventListener('click', closeDialog);
+        closeBtn.addEventListener('click', closeDialog);
+        dismissBtn.addEventListener('click', closeDialog);
+      })();
+    </script>
+  </section>
+
   <!-- ============ FOOTER ============ -->
   <footer class="border-t border-hairline">
     <div class="max-w-6xl mx-auto px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-xs text-muted">
@@ -656,6 +732,19 @@
     .no-scrollbar::-webkit-scrollbar { display: none; }
     .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
   </style>
+
+<!-- 
+  <script>
+      (function () {
+        var form = document.getElementById('contact-form');
+        if (!form) return;
+ 
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          alert('d');
+        });
+      })();
+    </script> -->
 
 </body>
 </html>
