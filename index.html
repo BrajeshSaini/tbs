@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Brajesh Saini | Senior Web Developer & Technical Consultant</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* CSS Variables & Reset */
+    :root {
+      --bg-color: #0b0f19;
+      --card-bg: #151c2c;
+      --card-hover: #1e293b;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --accent: #38bdf8;
+      --accent-hover: #0284c7;
+      --border: #1e293b;
+      --font: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      font-family: var(--font);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Layout Containers */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    section {
+      padding: 5rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(11, 15, 25, 0.9);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 70px;
+    }
+
+    .logo {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 70px;
+    }
+
+    .hero-content h1 {
+      font-size: 3.2rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-content h1 span {
+      color: var(--accent);
+    }
+
+    .hero-content h2 {
+      font-size: 1.5rem;
+      color: var(--text-muted);
+      font-weight: 500;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-content p {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      max-width: 700px;
+      margin-bottom: 2rem;
+    }
+
+    .hero-contact {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    .hero-contact a {
+      color: var(--text-main);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: color 0.3s;
+    }
+
+    .hero-contact a:hover {
+      color: var(--accent);
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 1.75rem;
+      background: var(--accent);
+      color: var(--bg-color);
+      font-weight: 600;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    .btn:hover {
+      background: var(--accent-hover);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--text-main);
+      border: 1px solid var(--border);
+    }
+
+    .btn-outline:hover {
+      background: var(--card-bg);
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+
+    /* Section Typography */
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 2.5rem;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 50px;
+      height: 4px;
+      background: var(--accent);
+      margin-top: 0.5rem;
+      border-radius: 2px;
+    }
+
+    /* Skills Grid */
+    .skills-group {
+      margin-bottom: 2rem;
+    }
+
+    .skills-group h3 {
+      font-size: 1.1rem;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .skills-flex {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .skill-badge {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+
+    .skill-badge:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    /* Experience Timeline */
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .experience-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.75rem;
+      transition: border-color 0.3s;
+    }
+
+    .experience-card:hover {
+      border-color: var(--accent);
+    }
+
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      margin-bottom: 0.75rem;
+    }
+
+    .exp-header h3 {
+      font-size: 1.25rem;
+      color: var(--text-main);
+    }
+
+    .exp-header .company {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .exp-header .date {
+      color: var(--text-muted);
+      font-size: 0.875rem;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 0.25rem 0.75rem;
+      border-radius: 12px;
+    }
+
+    .exp-bullets {
+      list-style-type: square;
+      padding-left: 1.2rem;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    .exp-bullets li {
+      margin-bottom: 0.4rem;
+    }
+
+    /* Projects Grid */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .project-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.3s, border-color 0.3s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--accent);
+    }
+
+    .project-title {
+      font-size: 1.2rem;
+      color: var(--text-main);
+      margin-bottom: 0.5rem;
+    }
+
+    .project-desc {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .project-tech {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+
+    .tech-tag {
+      font-size: 0.75rem;
+      color: var(--accent);
+      background: rgba(56, 189, 248, 0.1);
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+    }
+
+    .project-link {
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .project-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Contact & Footer */
+    .contact-box {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+
+    .contact-box p {
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 0;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    /* Scroll Animation */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .hero-content h1 { font-size: 2.2rem; }
+      .nav-links { display: none; }
+      .exp-header { flex-direction: column; gap: 0.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="container nav-container">
+      <a href="#" class="logo">&lt;Brajesh Saini /&gt;</a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" id="about">
+    <div class="container hero-content fade-in">
+      <h1>Hi, I'm <span>Brajesh Saini</span></h1>
+      <h2>Senior Web Developer & Technical Consultant</h2>
+      <p>Senior Web Developer with over eight years of experience specializing in frontend and full-stack application development. Proven track record of building responsive, high-performance web solutions using Angular, React JS, Next.js, and Node.js.</p>
+      
+      <div class="hero-contact">
+        <a href="tel:+919630325426"><i class="fas fa-phone"></i> (+91) 963-032-5426</a>
+        <a href="mailto:thebrajeshsaini@gmail.com"><i class="fas fa-envelope"></i> thebrajeshsaini@gmail.com</a>
+        <a href="https://www.linkedin.com/in/brajesh-saini/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn Profile</a>
+        <span><i class="fas fa-map-marker-alt"></i> Bhopal - M.P., India</span>
+      </div>
+
+      <div class="btn-group">
+        <a href="#contact" class="btn">Get in Touch</a>
+        <a href="#projects" class="btn btn-outline">View Projects</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technical Skills Section -->
+  <section id="skills">
+    <div class="container fade-in">
+      <h2 class="section-title">Technical Skills</h2>
+      
+      <div class="skills-group">
+        <h3>Frontend Development</h3>
+        <div class="skills-flex">
+          <span class="skill-badge">HTML5</span>
+          <span class="skill-badge">CSS3</span>
+          <span class="skill-badge">JavaScript</span>
+          <span class="skill-badge">TypeScript</span>
+          <span class="skill-badge">Angular</span>
+          <span class="skill-badge">RxJS</span>
+          <span class="skill-badge">React JS</span>
+          <span class="skill-badge">Redux Toolkit (RTK)</span>
+          <span class="skill-badge">Next JS</span>
+        </div>
+      </div>
+
+      <div class="skills-group">
+        <h3>Mobile & Hybrid</h3>
+        <div class="skills-flex">
+          <span class="skill-badge">Ionic</span>
+          <span class="skill-badge">Capacitor</span>
+        </div>
+      </div>
+
+      <div class="skills-group">
+        <h3>UI Frameworks & Styling</h3>
+        <div class="skills-flex">
+          <span class="skill-badge">Bootstrap</span>
+          <span class="skill-badge">Tailwind CSS</span>
+          <span class="skill-badge">SASS/SCSS</span>
+          <span class="skill-badge">jQuery</span>
+        </div>
+      </div>
+
+      <div class="skills-group">
+        <h3>Backend, Databases & CMS</h3>
+        <div class="skills-flex">
+          <span class="skill-badge">Node JS</span>
+          <span class="skill-badge">Express JS</span>
+          <span class="skill-badge">CodeIgniter</span>
+          <span class="skill-badge">PHP</span>
+          <span class="skill-badge">MySQL</span>
+          <span class="skill-badge">PostgreSQL</span>
+          <span class="skill-badge">MongoDB</span>
+          <span class="skill-badge">WordPress</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Work Experience Section -->
+  <section id="experience">
+    <div class="container fade-in">
+      <h2 class="section-title">Work Experience</h2>
+      <div class="timeline">
+
+        <!-- Independent Consultant -->
+        <div class="experience-card">
+          <div class="exp-header">
+            <div>
+              <h3>Senior Web Developer & Technical Consultant</h3>
+              <div class="company">Self-employed Independent Consultant (Bhopal)</div>
+            </div>
+            <div class="date">Nov. 2023 - Present</div>
+          </div>
+          <ul class="exp-bullets">
+            <li>Developed web and mobile applications using Angular, React JS, Next JS, Node JS, Ionic, and Capacitor.</li>
+            <li>Built matrimonial platforms, business websites, and directory-based applications with REST API integration.</li>
+            <li>Delivered scalable and responsive solutions for multiple clients, ensuring optimal performance and user experience.</li>
+          </ul>
+        </div>
+
+        <!-- ARBS India -->
+        <div class="experience-card">
+          <div class="exp-header">
+            <div>
+              <h3>Senior Software Developer</h3>
+              <div class="company">ARBS India Pvt. Ltd. (Bhopal)</div>
+            </div>
+            <div class="date">Oct. 2022 - Oct. 2023</div>
+          </div>
+          <ul class="exp-bullets">
+            <li>Developed and maintained the POS7 web application using Angular and REST APIs.</li>
+            <li>Converted Figma designs into responsive and reusable Angular components.</li>
+            <li>Collaborated with backend teams to define API requirements and improve overall application functionality.</li>
+          </ul>
+        </div>
+
+        <!-- AMTAG Global -->
+        <div class="experience-card">
+          <div class="exp-header">
+            <div>
+              <h3>Senior Software Developer</h3>
+              <div class="company">AMTAG Global LLP. (Bhopal)</div>
+            </div>
+            <div class="date">Oct. 2021 - July 2022</div>
+          </div>
+          <ul class="exp-bullets">
+            <li>Enhanced and maintained enterprise Angular applications with a focus on performance and scalability.</li>
+            <li>Improved mobile responsiveness and user experience across multiple core modules.</li>
+            <li>Followed clean coding standards and optimized project structure for long-term maintainability.</li>
+          </ul>
+        </div>
+
+        <!-- Kolonizer -->
+        <div class="experience-card">
+          <div class="exp-header">
+            <div>
+              <h3>Senior UI/UX Designer</h3>
+              <div class="company">Kolonizer (SRJ VARCO Developer) (Bhopal)</div>
+            </div>
+            <div class="date">Nov. 2019 - May 2021</div>
+          </div>
+          <ul class="exp-bullets">
+            <li>Designed and developed web and mobile applications using Angular, Ionic, PHP, and CodeIgniter.</li>
+            <li>Independently handled frontend, backend, API development, and system integration.</li>
+            <li>Built an in-house task management hybrid application and contributed to multiple business solutions.</li>
+            <li>Awarded Certificate of Excellence - Kolonizer (Oct 2020).</li>
+          </ul>
+        </div>
+
+        <!-- Vias Groups -->
+        <div class="experience-card">
+          <div class="exp-header">
+            <div>
+              <h3>Senior UI/UX Designer</h3>
+              <div class="company">Vias Groups (Bhopal)</div>
+            </div>
+            <div class="date">Sep. 2017 - Sep. 2019</div>
+          </div>
+          <ul class="exp-bullets">
+            <li>Designed and developed responsive websites using HTML, CSS, JavaScript, jQuery, and Bootstrap.</li>
+            <li>Worked on hybrid mobile application projects using Ionic and Angular, including REST API integration.</li>
+            <li>Collaborated with clients and development teams to deliver user-friendly digital solutions.</li>
+          </ul>
+        </div>
+
+        <!-- TBI Technologies -->
+        <div class="experience-card">
+          <div class="exp-header">
+            <div>
+              <h3>Trainee Website Designer</h3>
+              <div class="company">TBI Technologies (Bhopal)</div>
+            </div>
+            <div class="date">May 2017 - Aug. 2017</div>
+          </div>
+          <ul class="exp-bullets">
+            <li>Assisted in designing responsive websites and user interfaces for client projects.</li>
+            <li>Learned requirement gathering, wireframing, and modern web design principles.</li>
+            <li>Developed foundational skills in HTML, CSS, JavaScript, and UI/UX best practices.</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Projects Section -->
+  <section id="projects">
+    <div class="container fade-in">
+      <h2 class="section-title">Key Projects</h2>
+      <div class="projects-grid">
+
+        <div class="project-card">
+          <div>
+            <h3 class="project-title">HR & Workforce Management SaaS</h3>
+            <p class="project-desc">An all-in-one HR and workforce management SaaS platform built with hybrid mobile capabilities and scalable backend APIs.</p>
+            <div class="project-tech">
+              <span class="tech-tag">Ionic</span>
+              <span class="tech-tag">Angular</span>
+              <span class="tech-tag">CodeIgniter 4</span>
+              <span class="tech-tag">MySQL</span>
+            </div>
+          </div>
+          <a href="https://saas.websmakers.in" target="_blank" class="project-link">Visit Platform <i class="fas fa-external-link-alt"></i></a>
+        </div>
+
+        <div class="project-card">
+          <div>
+            <h3 class="project-title">Gahoi Sathi Matrimonial Ecosystem</h3>
+            <p class="project-desc">Developed 44 white-label web applications tailored for matrimonial matching and community directories.</p>
+            <div class="project-tech">
+              <span class="tech-tag">Angular</span>
+              <span class="tech-tag">Ionic</span>
+              <span class="tech-tag">REST APIs</span>
+            </div>
+          </div>
+          <a href="https://gahoisathi.com" target="_blank" class="project-link">Visit Website <i class="fas fa-external-link-alt"></i></a>
+        </div>
+
+        <div class="project-card">
+          <div>
+            <h3 class="project-title">POS7 Point of Sale System</h3>
+            <p class="project-desc">High-performance Point of Sale (POS) web application built for seamless transactional workflows.</p>
+            <div class="project-tech">
+              <span class="tech-tag">Angular</span>
+              <span class="tech-tag">REST APIs</span>
+            </div>
+          </div>
+          <a href="https://pos7.arbsindia.com" target="_blank" class="project-link">Visit App <i class="fas fa-external-link-alt"></i></a>
+        </div>
+
+        <div class="project-card">
+          <div>
+            <h3 class="project-title">Gahoi Patrika White-Label Suite</h3>
+            <p class="project-desc">Suite of 5 custom white-label web applications focused on regional news and content distribution.</p>
+            <div class="project-tech">
+              <span class="tech-tag">Angular</span>
+              <span class="tech-tag">Ionic</span>
+            </div>
+          </div>
+          <a href="https://gahoipatrika.com" target="_blank" class="project-link">Visit Site <i class="fas fa-external-link-alt"></i></a>
+        </div>
+
+        <div class="project-card">
+          <div>
+            <h3 class="project-title">iDaksha Dynamic Platform</h3>
+            <p class="project-desc">A scalable dynamic web application driven by robust backend database integrations.</p>
+            <div class="project-tech">
+              <span class="tech-tag">Angular</span>
+              <span class="tech-tag">CodeIgniter</span>
+              <span class="tech-tag">MySQL</span>
+            </div>
+          </div>
+          <a href="https://idaksha.org" target="_blank" class="project-link">Visit Website <i class="fas fa-external-link-alt"></i></a>
+        </div>
+
+        <div class="project-card">
+          <div>
+            <h3 class="project-title">SPHSPL Frontend Application</h3>
+            <p class="project-desc">Modern, responsive, and performant frontend web layout built for enterprise services.</p>
+            <div class="project-tech">
+              <span class="tech-tag">React JS</span>
+              <span class="tech-tag">JavaScript</span>
+            </div>
+          </div>
+          <a href="https://sphspl.com" target="_blank" class="project-link">Visit Platform <i class="fas fa-external-link-alt"></i></a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <div class="container fade-in">
+      <div class="contact-box">
+        <h2 class="section-title" style="margin-bottom: 1rem;">Get in Touch</h2>
+        <p>I am seeking challenging roles to contribute technical expertise, streamline CI/CD pipelines, and drive organizational growth. Feel free to reach out for project inquiries or collaborations.</p>
+        <a href="mailto:thebrajeshsaini@gmail.com" class="btn"><i class="fas fa-paper-plane"></i> Send Email</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Brajesh Saini. All rights reserved. | Bhopal, India</p>
+    </div>
+  </footer>
+
+  <!-- Scroll Animation Observer Script -->
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
