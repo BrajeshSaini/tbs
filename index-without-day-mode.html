@@ -40,7 +40,6 @@
     content="Explore projects, technical expertise, and full-stack web/mobile application solutions by Brajesh Saini." />
   <meta name="twitter:image" content="https://brajeshsaini.github.io/portfolio/og-image.png" />
 
-
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -55,15 +54,15 @@
       theme: {
         extend: {
           colors: {
-            ink: 'rgb(var(--c-ink) / <alpha-value>)',
-            panel: 'rgb(var(--c-panel) / <alpha-value>)',
-            card: 'rgb(var(--c-card) / <alpha-value>)',
-            hairline: 'rgb(var(--c-hairline) / <alpha-value>)',
-            fg: 'rgb(var(--c-fg) / <alpha-value>)',
-            muted: 'rgb(var(--c-muted) / <alpha-value>)',
-            amber: 'rgb(var(--c-amber) / <alpha-value>)',
-            teal: 'rgb(var(--c-teal) / <alpha-value>)',
-            rose: 'rgb(var(--c-rose) / <alpha-value>)',
+            ink: '#0D0F13',
+            panel: '#14171D',
+            card: '#1B1F27',
+            hairline: '#262B34',
+            fg: '#E7E5E0',
+            muted: '#8B909B',
+            amber: '#E3A542',
+            teal: '#5FBDB0',
+            rose: '#D9736B',
           },
           fontFamily: {
             display: ['"Space Grotesk"', 'sans-serif'],
@@ -75,67 +74,18 @@
     }
   </script>
 
-  <!-- apply saved theme before first paint to avoid a flash of the wrong colors -->
-  <script>
-      (function () {
-        var saved = localStorage.getItem('theme');
-        if (saved === 'light') document.documentElement.classList.add('light');
-      })();
-  </script>
-
   <style>
     :root {
       color-scheme: dark;
-      --c-ink: 13 15 19;
-      /* #0D0F13 */
-      --c-panel: 20 23 29;
-      /* #14171D */
-      --c-card: 27 31 39;
-      /* #1B1F27 */
-      --c-hairline: 38 43 52;
-      /* #262B34 */
-      --c-fg: 231 229 224;
-      /* #E7E5E0 */
-      --c-muted: 139 144 155;
-      /* #8B909B */
-      --c-amber: 227 165 66;
-      /* #E3A542 */
-      --c-teal: 95 189 176;
-      /* #5FBDB0 */
-      --c-rose: 217 115 107;
-      /* #D9736B */
-    }
-
-    html.light {
-      color-scheme: light;
-      --c-ink: 247 248 250;
-      /* #F7F8FA */
-      --c-panel: 255 255 255;
-      /* #FFFFFF */
-      --c-card: 241 242 245;
-      /* #F1F2F5 */
-      --c-hairline: 224 226 231;
-      /* #E0E2E7 */
-      --c-fg: 20 23 29;
-      /* #14171D */
-      --c-muted: 91 98 112;
-      /* #5B6270 */
-      --c-amber: 180 83 9;
-      /* #B45309 */
-      --c-teal: 15 118 110;
-      /* #0F766E */
-      --c-rose: 181 75 62;
-      /* #B54B3E */
     }
 
     body {
-      background-color: rgb(var(--c-ink));
-      transition: background-color 0.2s ease;
+      background-color: #0D0F13;
     }
 
     /* faint dot grid texture on the ink background */
     .bg-grid {
-      background-image: radial-gradient(rgb(var(--c-hairline)) 1px, transparent 1px);
+      background-image: radial-gradient(#262B34 1px, transparent 1px);
       background-size: 24px 24px;
     }
 
@@ -145,7 +95,7 @@
       display: inline-block;
       width: 0.55ch;
       height: 1.05em;
-      background: rgb(var(--c-amber));
+      background: #E3A542;
       margin-left: 4px;
       vertical-align: text-bottom;
       animation: blink 1s step-end infinite;
@@ -171,8 +121,8 @@
     }
 
     ::selection {
-      background: rgb(var(--c-amber));
-      color: rgb(var(--c-ink));
+      background: #E3A542;
+      color: #0D0F13;
     }
 
     /* visible keyboard focus */
@@ -180,7 +130,7 @@
     button:focus-visible,
     input:focus-visible,
     textarea:focus-visible {
-      outline: 2px solid rgb(var(--c-teal));
+      outline: 2px solid #5FBDB0;
       outline-offset: 3px;
       border-radius: 2px;
     }
@@ -212,23 +162,6 @@
       <span class="h-2.5 w-2.5 rounded-full bg-amber/70"></span>
       <span class="h-2.5 w-2.5 rounded-full bg-teal/70"></span>
       <span class="ml-3 text-xs font-mono text-muted truncate">brajesh-saini — portfolio — ~/dev</span>
-
-      <button id="theme-toggle" type="button" aria-label="Toggle light and dark mode"
-        class="ml-auto shrink-0 flex items-center justify-center h-7 w-7 rounded-md text-muted hover:text-fg hover:bg-card transition-colors">
-        <!-- sun icon: shown in light mode -->
-        <svg id="icon-sun" class="hidden" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-          stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="12" cy="12" r="4"></circle>
-          <path
-            d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41">
-          </path>
-        </svg>
-        <!-- moon icon: shown in dark mode -->
-        <svg id="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-          stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-        </svg>
-      </button>
     </div>
 
     <!-- tab bar acting as primary nav -->
@@ -251,10 +184,23 @@
           class="group flex items-center gap-2 px-4 py-3 text-sm font-mono border-r border-hairline text-muted hover:text-fg hover:bg-card transition-colors">
           <span class="text-teal">◆</span>log.md
         </a>
+
+        <!-- 
+          .md — Markdown. It's the format used for README files, changelogs, and documentation — plain text with light 
+          formatting. I used it for the experience/log section because a chronological work history reads like 
+          a changelog or CHANGELOG.md, which is exactly what that git-log-style timeline is mimicking. 
+        -->
+
         <a href="#contact"
           class="group flex items-center gap-2 px-4 py-3 text-sm font-mono border-r border-hairline text-muted hover:text-fg hover:bg-card transition-colors">
           <span class="text-amber">◆</span>contact.sh
         </a>
+        <!-- 
+          .sh — Shell script (Bash). It's an executable script file, the kind you'd run in a terminal with a command 
+          like ./deploy.sh. I used it for contact because the whole section is styled like running a terminal 
+          command — "run --hire-me", $ contact --brajesh — so .sh keeps that "this is an action you execute" feel, 
+          unlike .js/.ts (which imply source code/logic) or .md (static text).
+        -->
       </div>
       <a href="#contact"
         class="hidden md:inline-flex shrink-0 mx-3 items-center gap-2 rounded-md bg-amber text-ink font-mono text-xs font-semibold px-3 py-1.5 hover:bg-amber/90 transition-colors">
@@ -301,59 +247,37 @@
   </header>
 
   <script>
-    (function () {
-      var toggle = document.getElementById('nav-toggle');
-      var icon = document.getElementById('nav-toggle-icon');
-      var menu = document.getElementById('mobile-menu');
-      if (!toggle || !menu) return;
+      (function () {
+        var toggle = document.getElementById('nav-toggle');
+        var icon = document.getElementById('nav-toggle-icon');
+        var menu = document.getElementById('mobile-menu');
+        if (!toggle || !menu) return;
 
-      function closeMenu() {
-        menu.classList.add('hidden');
-        toggle.setAttribute('aria-expanded', 'false');
-        icon.textContent = '☰';
-      }
-      function openMenu() {
-        menu.classList.remove('hidden');
-        toggle.setAttribute('aria-expanded', 'true');
-        icon.textContent = '✕';
-      }
+        function closeMenu() {
+          menu.classList.add('hidden');
+          toggle.setAttribute('aria-expanded', 'false');
+          icon.textContent = '☰';
+        }
+        function openMenu() {
+          menu.classList.remove('hidden');
+          toggle.setAttribute('aria-expanded', 'true');
+          icon.textContent = '✕';
+        }
 
-      toggle.addEventListener('click', function () {
-        var isOpen = toggle.getAttribute('aria-expanded') === 'true';
-        isOpen ? closeMenu() : openMenu();
-      });
+        toggle.addEventListener('click', function () {
+          var isOpen = toggle.getAttribute('aria-expanded') === 'true';
+          isOpen ? closeMenu() : openMenu();
+        });
 
-      menu.querySelectorAll('.mobile-nav-link').forEach(function (link) {
-        link.addEventListener('click', closeMenu);
-      });
+        menu.querySelectorAll('.mobile-nav-link').forEach(function (link) {
+          link.addEventListener('click', closeMenu);
+        });
 
-      // collapse mobile menu automatically if the viewport grows past the sm breakpoint
-      window.addEventListener('resize', function () {
-        if (window.innerWidth >= 640) closeMenu();
-      });
-    })();
-
-    (function () {
-      var root = document.documentElement;
-      var btn = document.getElementById('theme-toggle');
-      var sun = document.getElementById('icon-sun');
-      var moon = document.getElementById('icon-moon');
-      if (!btn) return;
-
-      function syncIcons() {
-        var isLight = root.classList.contains('light');
-        sun.classList.toggle('hidden', !isLight);
-        moon.classList.toggle('hidden', isLight);
-      }
-
-      syncIcons();
-
-      btn.addEventListener('click', function () {
-        root.classList.toggle('light');
-        localStorage.setItem('theme', root.classList.contains('light') ? 'light' : 'dark');
-        syncIcons();
-      });
-    })();
+        // collapse mobile menu automatically if the viewport grows past the sm breakpoint
+        window.addEventListener('resize', function () {
+          if (window.innerWidth >= 640) closeMenu();
+        });
+      })();
   </script>
 
   <!-- ============ HERO ============ -->
@@ -418,6 +342,43 @@
 
     </div>
   </section>
+
+  <!-- ============ ABOUT ============ 
+  <section id="about" class="max-w-6xl mx-auto px-6 py-24 border-b border-hairline scroll-mt-24">
+    <p class="font-mono text-sm text-teal mb-3">// about</p>
+    <div class="grid lg:grid-cols-3 gap-12">
+      <h2 class="font-display text-3xl sm:text-4xl font-semibold tracking-tight lg:col-span-1">
+        Products before frameworks.
+      </h2>
+      <div class="lg:col-span-2 space-y-5 text-muted text-lg leading-relaxed">
+        <p>
+          I'm a Senior Web Developer with over eight years of experience across frontend
+          and full-stack application development, with a track record of building
+          responsive, high-performance solutions using Angular, React JS, Next.js, and Node.js.
+        </p>
+        <p>
+          Since going independent in late 2023, I've delivered matrimonial platforms,
+          business websites, and directory-based applications with REST API integration
+          for clients across multiple industries — handling everything from frontend and
+          backend to API design and system integration myself.
+        </p>
+        <div class="grid grid-cols-3 gap-6 pt-4 font-mono">
+          <div>
+            <p class="text-3xl text-fg font-display font-semibold">8<span class="text-amber">+</span></p>
+            <p class="text-xs text-muted mt-1">years experience</p>
+          </div>
+          <div>
+            <p class="text-3xl text-fg font-display font-semibold">50<span class="text-amber">+</span></p>
+            <p class="text-xs text-muted mt-1">white-label apps shipped</p>
+          </div>
+          <div>
+            <p class="text-3xl text-fg font-display font-semibold">6</p>
+            <p class="text-xs text-muted mt-1">companies &amp; consultancies</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>-->
 
   <!-- ============ ABOUT ============ -->
   <section id="about" class="max-w-6xl mx-auto px-6 py-24 border-b border-hairline scroll-mt-24">
@@ -527,11 +488,24 @@
         <p class="font-mono text-xs text-teal mt-3">} from <span class="text-fg">'cms'</span>;</p>
       </div>
 
+      <div class="rounded-lg border border-hairline bg-panel p-6 sr-only">
+        <p class="font-mono text-xs text-fg mb-3">import {</p>
+        <ul class="space-y-2 font-mono text-sm text-fg pl-4">
+          <li>Git / GitHub,</li>
+          <li>GitHub Actions (CI/CD),</li>
+          <li>Docker / Docker Compose,</li>
+          <li>Hostinger Node.js Deployment</li>
+        </ul>
+        <p class="font-mono text-xs text-rose mt-3">} from <span class="text-fg">'devops'</span>;</p>
+      </div>
+
     </div>
 
-    <!-- devops spotlight -->
+
+      <!-- devops spotlight -->
     <div class="w-full mt-6">
       <div class="rounded-lg border border-rose/30 bg-panel p-6 sm:p-8">
+        <p class="font-mono text-xs text-rose mb-3 text-center">// most active module</p>
         <p class="font-mono text-xs text-fg mb-3 text-center">import {</p>
         <ul class="flex flex-wrap justify-center gap-x-2 gap-y-1 font-mono text-sm text-fg text-center">
           <li>Git / GitHub,</li>
@@ -544,7 +518,7 @@
     </div>
 
     <!-- devops highlights -->
-    <div class="w-full grid sm:grid-cols-2 gap-6 mt-6">
+    <div class="grid sm:grid-cols-2 gap-6 mt-6">
       <div class="rounded-lg border border-hairline bg-panel p-6">
         <p class="font-mono text-xs text-amber mb-3">// ci-cd-pipelines.yml</p>
         <p class="text-muted text-sm leading-relaxed">
@@ -729,55 +703,9 @@
         </div>
       </article>
 
-      <!-- project card -->
-      <article
-        class="group rounded-lg border border-hairline bg-panel overflow-hidden hover:border-teal/60 transition-colors">
-        <div class="flex items-center justify-between px-5 py-3 border-b border-hairline bg-card">
-          <span class="font-mono text-xs text-fg">akshar-online-seva.php</span>
-          <span
-            class="font-mono text-[10px] uppercase tracking-wide text-amber border border-amber/30 rounded px-2 py-0.5">WordPress</span>
-        </div>
-        <div class="p-5">
-          <h3 class="font-display text-xl font-semibold mb-2">Akshar Online Seva</h3>
-          <p class="text-muted text-sm leading-relaxed">
-            Business website designed and built on WordPress for a digital
-            services provider.
-          </p>
-          <div class="flex flex-wrap gap-2 mt-4">
-            <span class="font-mono text-[11px] text-muted border border-hairline rounded px-2 py-1">WordPress</span>
-          </div>
-          <div class="flex gap-5 mt-5 font-mono text-xs">
-            <a href="https://aksharonlineseva.com" target="_blank" rel="noopener"
-              class="text-amber hover:underline">visit website →</a>
-          </div>
-        </div>
-      </article>
-
-      <!-- project card -->
-      <article
-        class="group rounded-lg border border-hairline bg-panel overflow-hidden hover:border-teal/60 transition-colors">
-        <div class="flex items-center justify-between px-5 py-3 border-b border-hairline bg-card">
-          <span class="font-mono text-xs text-fg">mp-ki-awaaz.php</span>
-          <span
-            class="font-mono text-[10px] uppercase tracking-wide text-amber border border-amber/30 rounded px-2 py-0.5">WordPress</span>
-        </div>
-        <div class="p-5">
-          <h3 class="font-display text-xl font-semibold mb-2">MP Ki Awaaz</h3>
-          <p class="text-muted text-sm leading-relaxed">
-            Regional news and content website designed and built on WordPress.
-          </p>
-          <div class="flex flex-wrap gap-2 mt-4">
-            <span class="font-mono text-[11px] text-muted border border-hairline rounded px-2 py-1">WordPress</span>
-          </div>
-          <div class="flex gap-5 mt-5 font-mono text-xs">
-            <a href="https://mpkiawaaz.com" target="_blank" rel="noopener" class="text-amber hover:underline">visit
-              website →</a>
-          </div>
-        </div>
-      </article>
-
     </div>
   </section>
+
   <!-- ============ EXPERIENCE / GIT LOG ============ -->
   <section id="experience" class="max-w-6xl mx-auto px-6 py-24 border-b border-hairline scroll-mt-24">
     <p class="font-mono text-sm text-teal mb-3">// experience</p>
@@ -792,6 +720,12 @@
         <p class="font-mono text-xs text-muted mb-1">Nov. 2023 — present</p>
         <h3 class="font-display text-lg font-semibold">Senior Web Developer &amp; Technical Consultant · Self-Employed
           (Bhopal)</h3>
+        <!-- <p class="text-muted mt-2 leading-relaxed max-w-2xl">
+          Independent consultant developing web and mobile applications using Angular,
+          React JS, Next JS, Node JS, Ionic, and Capacitor — including matrimonial platforms,
+          business websites, and directory apps with REST API integration.
+        </p> -->
+
         <p class="text-muted mt-2 leading-relaxed max-w-2xl">
           Independent consultant developing web and mobile applications using Angular,
           React JS, Next JS, Node JS, Ionic, and Capacitor — including matrimonial platforms,
@@ -880,28 +814,28 @@
           · Bhopal, M.P., India
         </p>
 
-        <form id="contact-form" class="mt-8 grid sm:grid-cols-2 gap-5 max-w-2xl">
+        <form class="mt-8 grid sm:grid-cols-2 gap-5 max-w-2xl" id="contact-form">
           <div class="flex flex-col gap-1.5">
             <label for="name" class="font-mono text-xs text-muted">--name</label>
-            <input id="name" name="name" type="text" placeholder="Jordan Lee"
+            <input id="name" type="text" placeholder="Jordan Lee"
               class="bg-card border border-hairline rounded-md px-3 py-2.5 text-sm text-fg placeholder:text-muted/60 focus:border-teal outline-none" />
           </div>
           <div class="flex flex-col gap-1.5">
             <label for="email" class="font-mono text-xs text-muted">--email</label>
-            <input id="email" name="email" type="email" placeholder="jordan@company.com"
+            <input id="email" type="email" placeholder="jordan@company.com"
               class="bg-card border border-hairline rounded-md px-3 py-2.5 text-sm text-fg placeholder:text-muted/60 focus:border-teal outline-none" />
           </div>
           <div class="sm:col-span-2 flex flex-col gap-1.5">
             <label for="message" class="font-mono text-xs text-muted">--message</label>
-            <textarea id="message" name="message" rows="4" placeholder="Tell me about the role or project…"
+            <textarea id="message" rows="4" placeholder="Tell me about the role or project…"
               class="bg-card border border-hairline rounded-md px-3 py-2.5 text-sm text-fg placeholder:text-muted/60 focus:border-teal outline-none resize-none"></textarea>
           </div>
           <div class="sm:col-span-2">
-            <button type="submit" id="contact-submit"
+            <button type="submit"
               class="w-full sm:w-auto rounded-md bg-amber text-ink font-mono text-sm font-semibold px-6 py-3 hover:bg-amber/90 transition-colors">
               ./send-message
             </button>
-            <p class="mt-3 text-xs font-mono text-muted">
+            <p class="mt-3 text-xs text-muted font-mono">
               or email directly: <a href="mailto:thebrajeshsaini@gmail.com"
                 class="text-teal hover:underline">thebrajeshsaini@gmail.com</a>
             </p>
@@ -909,81 +843,82 @@
         </form>
       </div>
     </div>
+  </section>
 
-    <!-- contact dialog -->
-    <div id="contact-dialog" class="hidden fixed inset-0 z-[60] items-center justify-center px-4">
-      <div id="contact-dialog-backdrop" class="absolute inset-0 bg-ink/80 backdrop-blur-sm"></div>
+  <!-- contact dialog -->
+  <div id="contact-dialog" class="hidden fixed inset-0 z-[60] items-center justify-center px-4">
+    <div id="contact-dialog-backdrop" class="absolute inset-0 bg-ink/80 backdrop-blur-sm"></div>
 
-      <div role="dialog" aria-modal="true" aria-labelledby="contact-dialog-title"
-        class="relative w-full max-w-sm rounded-lg border border-hairline bg-panel shadow-2xl shadow-black/50 overflow-hidden">
+    <div role="dialog" aria-modal="true" aria-labelledby="contact-dialog-title"
+      class="relative w-full max-w-sm rounded-lg border border-hairline bg-panel shadow-2xl shadow-black/50 overflow-hidden">
 
-        <div class="flex items-center gap-2 px-4 py-2.5 border-b border-hairline bg-card">
-          <span class="h-2.5 w-2.5 rounded-full bg-rose/70"></span>
-          <span class="h-2.5 w-2.5 rounded-full bg-amber/70"></span>
-          <span class="h-2.5 w-2.5 rounded-full bg-teal/70"></span>
-          <span class="ml-3 font-mono text-xs text-muted">reply.sh</span>
-          <button id="contact-dialog-close" type="button" aria-label="Close dialog"
-            class="ml-auto text-muted hover:text-fg font-mono text-sm">✕</button>
-        </div>
+      <div class="flex items-center gap-2 px-4 py-2.5 border-b border-hairline bg-card">
+        <span class="h-2.5 w-2.5 rounded-full bg-rose/70"></span>
+        <span class="h-2.5 w-2.5 rounded-full bg-amber/70"></span>
+        <span class="h-2.5 w-2.5 rounded-full bg-teal/70"></span>
+        <span class="ml-3 font-mono text-xs text-muted">reply.sh</span>
+        <button id="contact-dialog-close" type="button" aria-label="Close dialog"
+          class="ml-auto text-muted hover:text-fg font-mono text-sm">✕</button>
+      </div>
 
-        <div class="p-6">
-          <p class="font-mono text-xs text-teal mb-2">$ echo $CONTACT_METHOD</p>
-          <h3 id="contact-dialog-title" class="font-display text-lg font-semibold mb-2">
-            Please reach out by email
-          </h3>
-          <p class="text-muted text-sm leading-relaxed">
-            I personally review every inquiry — email ensures your message reaches me directly and gets a prompt
-            response.
-          </p>
+      <div class="p-6">
+        <p class="font-mono text-xs text-teal mb-2">$ echo $CONTACT_METHOD</p>
+        <h3 id="contact-dialog-title" class="font-display text-lg font-semibold mb-2">
+          Please reach out by email
+        </h3>
+        <p class="text-muted text-sm leading-relaxed">
+          <!-- This form is a UI preview — for now, email is the fastest way to reach me directly. -->
+          I personally review every inquiry — email ensures your message reaches me directly and gets a prompt response.
+        </p>
 
-          <div class="mt-5 flex flex-col sm:flex-row gap-3">
-            <a href="mailto:thebrajeshsaini@gmail.com"
-              class="inline-flex items-center justify-center gap-2 rounded-md bg-amber text-ink font-mono text-sm font-semibold px-4 py-2.5 hover:bg-amber/90 transition-colors">
-              thebrajeshsaini@gmail.com
-            </a>
-            <button id="contact-dialog-dismiss" type="button"
-              class="inline-flex items-center justify-center rounded-md border border-hairline font-mono text-sm px-4 py-2.5 text-muted hover:text-fg hover:border-teal transition-colors">
-              Close
-            </button>
-          </div>
+        <div class="mt-5 flex flex-col sm:flex-row gap-3">
+          <a href="mailto:thebrajeshsaini@gmail.com"
+            class="inline-flex items-center justify-center gap-2 rounded-md bg-amber text-ink font-mono text-sm font-semibold px-4 py-2.5 hover:bg-amber/90 transition-colors">
+            thebrajeshsaini@gmail.com
+          </a>
+          <button id="contact-dialog-dismiss" type="button"
+            class="inline-flex items-center justify-center rounded-md border border-hairline font-mono text-sm px-4 py-2.5 text-muted hover:text-fg hover:border-teal transition-colors">
+            Close
+          </button>
         </div>
       </div>
     </div>
+  </div>
 
-    <script>
-      (function () {
-        var form = document.getElementById('contact-form');
-        var dialog = document.getElementById('contact-dialog');
-        var backdrop = document.getElementById('contact-dialog-backdrop');
-        var closeBtn = document.getElementById('contact-dialog-close');
-        var dismissBtn = document.getElementById('contact-dialog-dismiss');
-        if (!form || !dialog) return;
+  <script>
+    (function () {
+      var form = document.getElementById('contact-form');
+      var dialog = document.getElementById('contact-dialog');
+      var backdrop = document.getElementById('contact-dialog-backdrop');
+      var closeBtn = document.getElementById('contact-dialog-close');
+      var dismissBtn = document.getElementById('contact-dialog-dismiss');
+      if (!form || !dialog) return;
 
-        function openDialog() {
-          dialog.classList.remove('hidden');
-          dialog.classList.add('flex');
-          closeBtn.focus();
-          document.addEventListener('keydown', onKeydown);
-        }
-        function closeDialog() {
-          dialog.classList.add('hidden');
-          dialog.classList.remove('flex');
-          document.removeEventListener('keydown', onKeydown);
-        }
-        function onKeydown(e) {
-          if (e.key === 'Escape') closeDialog();
-        }
+      function openDialog() {
+        dialog.classList.remove('hidden');
+        dialog.classList.add('flex');
+        closeBtn.focus();
+        document.addEventListener('keydown', onKeydown);
+      }
+      function closeDialog() {
+        dialog.classList.add('hidden');
+        dialog.classList.remove('flex');
+        document.removeEventListener('keydown', onKeydown);
+      }
+      function onKeydown(e) {
+        if (e.key === 'Escape') closeDialog();
+      }
 
-        form.addEventListener('submit', function (e) {
-          e.preventDefault();
-          openDialog();
-        });
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        openDialog();
+      });
 
-        backdrop.addEventListener('click', closeDialog);
-        closeBtn.addEventListener('click', closeDialog);
-        dismissBtn.addEventListener('click', closeDialog);
-      })();
-    </script>
+      backdrop.addEventListener('click', closeDialog);
+      closeBtn.addEventListener('click', closeDialog);
+      dismissBtn.addEventListener('click', closeDialog);
+    })();
+  </script>
   </section>
 
   <!-- ============ FOOTER ============ -->
@@ -1010,6 +945,19 @@
       scrollbar-width: none;
     }
   </style>
+
+  <!-- 
+  <script>
+      (function () {
+        var form = document.getElementById('contact-form');
+        if (!form) return;
+ 
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          alert('d');
+        });
+      })();
+    </script> -->
 
 </body>
 
